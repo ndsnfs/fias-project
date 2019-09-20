@@ -1,0 +1,16 @@
+version: '2'
+services:
+
+  nginx:
+    build:
+      context: ./docker/nginx
+    volumes:
+      - ./app:/app
+    ports:
+      - '8087:80'
+
+  php-fpm:
+    build:
+      context: ./docker/php
+    volumes:
+      - ./app:/app
