@@ -6,18 +6,24 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\AoRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\HouseRepository")
  * @ApiResource(
  *      itemOperations = {
  *          "get"={
  *              "method"="GET",
- *              "path"="/ao/{guid}.{_format}",
+ *              "path"="/house/{guid}.{_format}",
  *          },
  *      },
- *      collectionOperations = {},
+ *      collectionOperations = {
+ *          "get"={
+ *              "method"="GET",
+ *              "path"="/house.{_format}",
+ *              "controller"="App\Controller\HouseController::list",
+ *          },
+ *     },
  * )
  */
-class Ao
+class House
 {
     /**
      * @ORM\Id()
